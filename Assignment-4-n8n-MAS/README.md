@@ -51,7 +51,9 @@ Takes agent 1's output as its main source, works out what kind of answer the use
 | `AI agent class assignment 4- multiagent.json` | Exported n8n workflow |
 | `Agent 1 - Research.txt` | System prompt of the research agent (taken from the workflow) |
 | `Agent 2 - Analysis.txt` | System prompt of the analysis agent (taken from the workflow) |
-| `screenshots/` | Workflow, Tavily and chat screenshots *(to be added)* |
+| `screenshots/workflow.png` | The two-agent workflow on the n8n canvas |
+| `screenshots/chat-and-logs.png` | Test run ("what is AI?") with execution logs and the final response |
+| `screenshots/tavily-search.png` | Tavily search node configuration and the results it returned |
 
 ## Setup notes
 
