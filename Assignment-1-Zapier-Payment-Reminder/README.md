@@ -4,8 +4,8 @@ A no-code automation built with **Zapier**, **Google Sheets** and **Gmail** that
 
 ## Links
 
-- Zapier agent: *add your own link here*
-- Google Sheet (SCIT Invoice test data): *add your own link here*
+- Zapier agent: https://agents.zapier.com/copy/65c3ba40-b434-45e2-9a65-0150659df063 (free account, so the link may expire)
+- Google Sheet (SCIT Invoice test data): https://docs.google.com/spreadsheets/d/1C8QezSuCf7yhpllobUne75CGsOU9IA417mUSJmodt6U/edit?usp=sharing
 
 ## What it does
 
