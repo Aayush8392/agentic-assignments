@@ -63,7 +63,11 @@ For each question the agent calls the vector store tool, which embeds the questi
 |---|---|
 | `RAG Assignment.json` | Exported n8n workflow |
 | `Credit_Appraisal_RAG_Knowledge_Base.docx` | Policy knowledge base |
-| `screenshots/` | Workflow, configuration and chat screenshots *(to be added)* |
+| `screenshots/workflow-overview.png` | Ingestion and question-answering pipelines on the n8n canvas |
+| `screenshots/workflow-with-chat.png` | Full workflow with the chat panel and execution logs |
+| `screenshots/ai-agent.png` | AI Agent node: prompt, system message and answer to "minimum bureau score for a Car Loan" |
+| `screenshots/vector-store-tool.png` | Vector Store tool: description, limit of 4, and retrieved policy chunks |
+| `screenshots/chat-and-logs.png` | Chat test run and node execution logs |
 
 ## Setup notes
 
