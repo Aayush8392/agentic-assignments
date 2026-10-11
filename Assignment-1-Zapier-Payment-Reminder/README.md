@@ -55,7 +55,7 @@ Zapier, Google Sheets, Gmail, Google Drive, CSV / Excel.
 
 | File | Purpose |
 |---|---|
-| `Prompt.md` | The instructions given to Zapier's agent for the first and second reminder workflows (recipient addresses replaced with placeholders) |
+| `Prompt.md` | The instructions given to Zapier's agent for the first and second reminder workflows (email addresses replaced with `test@example.com`) |
 | `screenshots/zapier-agent.png` | Agent configuration: trigger, instructions and preview |
 | `screenshots/tools.png` | Tools and knowledge source connected to the agent |
 | `screenshots/spreadsheet.png` | SCIT Invoice test data |

@@ -9,13 +9,13 @@ Trigger: This workflow is triggered on a scheduled basis (e.g., every day at 9:0
 5. Compose a professional payment reminder email draft for each pending record :action[Gmail%3A%20Create%20Draft]{data="%7B%22id%22%3A%22draft_v2%22%2C%22label%22%3A%22Gmail%3A%20Create%20Draft%22%2C%22selectedApi%22%3A%22GoogleMailV2CLIAPI%22%2C%22copilotInserted%22%3Afalse%2C%22isLoading%22%3Afalse%7D"} using the following sample template:
 - Subject: 'Payment Reminder - Invoice [Invoice ID] Due'
 - Body: 'Dear [Name], This is a friendly reminder that your payment for Invoice ID: [Invoice ID] of Amount: [Amount] is currently pending. Please find your banking details below for reference: Account No: [Account No], Bank Name: [Bank Name], Payment Type: [Type].Transaction ID:[Type] Kindly ensure the payment is completed at the earliest to avoid any inconvenience. If you have already made the payment, please disregard this message. Thank you for your cooperation. Regards, 'Payments Team'
-6. Send the composed reminder email to the email address associated with each 'Pending' record. email id - <authorised-recipient-1@example.com> and <authorised-recipient-2@example.com>
+6. Send the composed reminder email to the email address associated with each 'Pending' record. email id - test@example.com
 
 send only to those whom i have mentioned the email ids.
 
 :action[Google%20Sheets%3A%20Update%20Spreadsheet%20Row]{data="%7B%22id%22%3A%22f62b3942-4c38-4c59-95c5-bf04a78086df%22%2C%22label%22%3A%22Google%20Sheets%3A%20Update%20Spreadsheet%20Row%22%2C%22selectedApi%22%3A%22GoogleSheetsV2CLIAPI%22%2C%22copilotInserted%22%3Afalse%2C%22isLoading%22%3Afalse%7D"}
 
-From - <your-sender-address@example.com>
+From - test@example.com
 7. Log each sent email with the corresponding Invoice ID, Name, Amount, and timestamp for record-keeping.
 
 Conditional Logic:
