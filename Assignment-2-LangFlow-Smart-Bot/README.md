@@ -44,7 +44,8 @@ If the subject is ambiguous or there isn't enough information, the bot asks for 
 |---|---|
 | `Market_Research_Assistant.json` | Exported LangFlow flow – import it to reproduce the bot |
 | `Prompts.md` | Prompt template text and a short explanation of its design |
-| `screenshots/` | Flow and output screenshots *(to be added)* |
+| `screenshots/workflow.png` | The LangFlow flow on the canvas |
+| `screenshots/playground-output.png` | Sample run: EV market analysis for India in the Playground |
 
 ## How to run
 
