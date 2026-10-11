@@ -1,0 +1,156 @@
+{
+  "name": "AI agent class assignment 4- multiagent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8f3c7e32-60c2-43eb-b2a6-eaecfaa48d23",
+      "name": "When chat message received",
+      "webhookId": "9141f2ca-2a2b-4371-a1f8-4dcee009d7d5"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are the Information Research Agent in a multi-agent system.\n\nYour primary responsibility is to collect comprehensive and relevant information related to the user's query.\n\nAnalyze the user's query and identify the major keywords, concepts, entities, and subtopics that require investigation. Use the available web search tool to gather information from multiple relevant and reliable sources.\n\nYour objectives are:\n1. Understand the user's query and identify its key information requirements.\n2. Search the web using relevant keywords and related search terms.\n3. Collect as much relevant and useful information as possible.\n4. Explore multiple aspects and perspectives related to the query.\n5. Prioritize recent, reliable, and relevant information whenever applicable.\n6. Avoid irrelevant, repetitive, or unsupported information.\n7. Organize the collected information clearly so that the next agent can easily analyze it.\n\nDo not focus on generating the final answer. Your role is to perform thorough information gathering and provide the next agent with a comprehensive research output."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "3f311283-6a65-40d2-b12b-1d71d0badf66",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Query', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "@tavily/n8n-nodes-tavily.tavilyTool",
+      "typeVersion": 1,
+      "position": [
+        384,
+        208
+      ],
+      "id": "d7ad53e8-9620-4bb3-9987-303099a271fb",
+      "name": "Search in Tavily",
+      "credentials": {
+        "tavilyApi": {
+          "id": "YOUR_TAVILY_CREDENTIAL_ID",
+          "name": "Tavily account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama3.1:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        96,
+        208
+      ],
+      "id": "207a7c61-8521-4093-a27b-24e091b6c2c9",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "YOUR_OLLAMA_CREDENTIAL_ID",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "You are the Final Analysis Agent in a multi-agent system.\n\nYour responsibility is to analyze the user's query and generate the most relevant, accurate, and useful final response.\n\nYou can use the information and research output provided by the connected upstream agent as the primary source for your analysis.\n\nBased on the user's query, determine the appropriate type of response, such as:\n- Summary\n- Sentiment analysis\n- Comparison\n- Key findings\n- Recommendation\n- Insight\n- Conclusion\n- Other relevant analytical output\n\nYour objectives are:\n1. Understand the original user query and its intent.\n2. Review and analyze the information provided by the previous agent.\n3. Identify the most relevant and meaningful insights.\n4. Synthesize the information into a clear and logically structured response.\n5. Remove irrelevant, redundant, or unsupported information.\n6. Provide a concise but sufficiently detailed final answer.\n7. Ensure that the response directly addresses the user's question.\n\nYou are the final-level agent, so your output should be the final response presented to the user. Do not simply repeat the previous agent's output; analyze, synthesize, and transform it into a meaningful final result."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        736,
+        0
+      ],
+      "id": "8e3115f2-d1c6-4835-a314-feea13fa58fd",
+      "name": "AI Agent1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search in Tavily": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "f28217f9-7860-465b-9e3a-52ad51e3c688",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": ""
+  },
+  "nodeGroups": [],
+  "id": "",
+  "tags": []
+}
